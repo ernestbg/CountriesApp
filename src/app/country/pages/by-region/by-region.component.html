@@ -1,0 +1,34 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h2>By region: <small>{{activedRegion | uppercase}}</small> </h2>
+    <hr>
+
+
+
+    <!-- [class.btn-primary]="region===activedRegion"  -->
+
+    <!-- [ngClass]="{
+        'btn-primary': activedRegion===region,
+        'btn-outline-primary': activedRegion!==region
+        
+    }" -->
+
+    <!-- [class.active]="region === activedRegion" -->
+
+    <div class="row">
+        <div class="col">
+            <button *ngFor="let region of regions" [class]="getClassCSS(region)" (click)="activateRegion(region)">
+                {{region | uppercase}}
+            </button>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+
+    <div class="row">
+        <div class="col">
+            <app-country-table [countries]="countries"></app-country-table>
+        </div>
+    </div>
